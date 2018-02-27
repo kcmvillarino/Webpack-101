@@ -1,10 +1,12 @@
 const HTMLPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+var path = require("path");
 
 module.exports = {
     entry: './src/app.js',
     output: {
-        path: 'dist',
+        //path: 'dist',
+        path: path.resolve(__dirname,"dist"),
         filename: 'app.bundle.js'
     },
     module: {
@@ -14,8 +16,16 @@ module.exports = {
                     fallback: "style-loader",
                     use: ['css-loader','sass-loader'],
                     publicPath: "/dist"
-           })}
+           })},
+           { test: /\.js$/, exclude: /node_modules/, use: 'babel-loader' }
         ]
+    },
+    devServer : {
+        contentBase: path.join(__dirname, "dist"),
+        compress: true,
+        port: 9000,
+        //open : true (for non headless environment, to open a browser)
+        stats: "errors-only"
     },
     plugins: [
         new HTMLPlugin({
