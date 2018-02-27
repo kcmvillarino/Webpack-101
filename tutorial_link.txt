@@ -1,0 +1,7 @@
+source tutorial
+
+1. Webpack 2 Installation and config = https://www.youtube.com/watch?v=JdGnYNtuEtE&t=270s
+2. Webpack 2 HTML Webpack Plugin = https://www.youtube.com/watch?v=cKTDYSK0ArI
+3. Webpack 2 Style CSS and Sass loaders = https://www.youtube.com/watch?v=m7V0OackwxY&t=924s
+4. Webpack 2 with Webpack Dev Server = https://www.youtube.com/watch?v=gH4LxB6NkNc
+5. Webpack 2 with Webpack Dev Server Configuration = https://www.youtube.com/watch?v=soI7X-7OSb4
