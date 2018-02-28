@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server",
-    "prod": "npm run clean && webpack -p",
-    "clean" : "rimraf ./dist/*"
+    "prod": "npm run clean && cross-env NODE_ENV=production webpack -p",
+    "clean": "rimraf ./dist/*"
   },
   "author": "Charlie Villarino",
   "license": "ISC",
@@ -16,6 +16,7 @@
     "babel-loader": "^7.1.3",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "cross-env": "^5.1.3",
     "css-loader": "^0.28.10",
     "extract-text-webpack-plugin": "^2.1.2",
     "html-webpack-plugin": "^2.30.1",

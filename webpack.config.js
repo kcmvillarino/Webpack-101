@@ -1,6 +1,16 @@
 const HTMLPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+var webpack = require('webpack');
 var path = require("path");
+
+var isProd = process.env.NODE_ENV === 'production'; // true or false
+var cssDev = ['style-loader','css-loader','sass-loader'];
+var cssProd = ExtractTextPlugin.extract({
+    fallback: "style-loader",
+    use: ['css-loader','sass-loader'],
+    publicPath: "/dist"
+});
+var cssConfig = isProd ? cssProd : cssDev;
 
 module.exports = {
     entry: {
@@ -14,12 +24,10 @@ module.exports = {
     },
     module: {
         rules: [
-           // {test: /\.scss$/, use: ExtractTextPlugin.extract(['style-loader','css-loader','sass-loader'])}
-           {test: /\.scss$/, use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
-                    use: ['css-loader','sass-loader'],
-                    publicPath: "/dist"
-           })},
+        //{test: /\.scss$/, use: ['style-loader','css-loader','sass-loader']},
+           {test: /\.scss$/, 
+            use: cssConfig
+           },
            { test: /\.js$/, exclude: /node_modules/, use: 'babel-loader' }
         ]
     },
@@ -27,6 +35,7 @@ module.exports = {
         contentBase: path.join(__dirname, "dist"),
         compress: true,
         port: 9000,
+        hot: true,
         //open : true (for non headless environment, to open a browser)
         stats: "errors-only"
     },
@@ -51,8 +60,13 @@ module.exports = {
           }),
           new ExtractTextPlugin({
               filename: "app.css",
-              disable: false,
+              disable: !isProd,
               allChunks: true
+          }),
+          new webpack.NamedModulesPlugin(),
+          new webpack.HotModuleReplacementPlugin(),
+          new webpack.optimize.UglifyJsPlugin({
+              //
           })
     ]
 }

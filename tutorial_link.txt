@@ -1,5 +1,7 @@
 source tutorial
 
+Basic Webpack and Core concepts - https://www.youtube.com/watch?v=GU-2T7k9NfI&list=PL55RiY5tL51rcCnrOrZixuOsZhAHHy6os
+
 1. Webpack 2 Installation and config = https://www.youtube.com/watch?v=JdGnYNtuEtE&t=270s
 2. Webpack 2 HTML Webpack Plugin = https://www.youtube.com/watch?v=cKTDYSK0ArI
 3. Webpack 2 Style CSS and Sass loaders = https://www.youtube.com/watch?v=m7V0OackwxY&t=924s
@@ -9,3 +11,7 @@ source tutorial
 7. Webpack 2 Multiple templates options and RimRaf = https://www.youtube.com/watch?v=OvjB2Sfq9ZU
     - adding multiple templates (i.e. index.html, contact.html)
     - using rimraf to clean dist before adding the new compressed files
+8. Webpack 2 Hot Module Replacement - CSS = https://www.youtube.com/watch?v=faFJw1wjQLE
+        - reloading view without refreshing using HMR 
+9. Webpack 2 - Production vs Development Environment = https://www.youtube.com/watch?v=NtyzJMi-a-M&t=81s
+      - use cross-env module for NODE_ENV to work (npm i -D cross-env / npm install cross-env --save-dev)
