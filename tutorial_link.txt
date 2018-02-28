@@ -5,3 +5,7 @@ source tutorial
 3. Webpack 2 Style CSS and Sass loaders = https://www.youtube.com/watch?v=m7V0OackwxY&t=924s
 4. Webpack 2 with Webpack Dev Server = https://www.youtube.com/watch?v=gH4LxB6NkNc
 5. Webpack 2 with Webpack Dev Server Configuration = https://www.youtube.com/watch?v=soI7X-7OSb4
+6. Webpack 2 How to install React and Babel = https://www.youtube.com/watch?v=zhA5LNA3MxE
+7. Webpack 2 Multiple templates options and RimRaf = https://www.youtube.com/watch?v=OvjB2Sfq9ZU
+    - adding multiple templates (i.e. index.html, contact.html)
+    - using rimraf to clean dist before adding the new compressed files
