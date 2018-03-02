@@ -25,10 +25,20 @@ module.exports = {
     module: {
         rules: [
         //{test: /\.scss$/, use: ['style-loader','css-loader','sass-loader']},
-           {test: /\.scss$/, 
+           {
+            test: /\.scss$/, 
             use: cssConfig
            },
-           { test: /\.js$/, exclude: /node_modules/, use: 'babel-loader' }
+           { 
+               test: /\.js$/, 
+               exclude: /node_modules/, 
+               use: 'babel-loader'
+            },
+            {
+                test: /\.(jpg|svg|png)$/,
+                use: 'file-loader?name=[name].[ext]&outputPath=img/'
+
+            }
         ]
     },
     devServer : {

@@ -15,3 +15,6 @@ Basic Webpack and Core concepts - https://www.youtube.com/watch?v=GU-2T7k9NfI&li
         - reloading view without refreshing using HMR 
 9. Webpack 2 - Production vs Development Environment = https://www.youtube.com/watch?v=NtyzJMi-a-M&t=81s
       - use cross-env module for NODE_ENV to work (npm i -D cross-env / npm install cross-env --save-dev)
+10. Webpack 2 - How to load images via file-loader = https://www.youtube.com/watch?v=cDLfpth5a3s&index=11&list=PLkEZWD8wbltnRp6nRR8kv97RbpcUdNawY
+     - use file-loader package to load images
+     - use image-webpack-loader to optimize image before bundling
