@@ -18,3 +18,7 @@ Basic Webpack and Core concepts - https://www.youtube.com/watch?v=GU-2T7k9NfI&li
 10. Webpack 2 - How to load images via file-loader = https://www.youtube.com/watch?v=cDLfpth5a3s&index=11&list=PLkEZWD8wbltnRp6nRR8kv97RbpcUdNawY
      - use file-loader package to load images
      - use image-webpack-loader to optimize image before bundling
+11. Webpack 2 - How to load twitter bootstrap = https://www.youtube.com/watch?v=cN0eUhoV_Gc&list=PLkEZWD8wbltnRp6nRR8kv97RbpcUdNawY&index=12 
+     - import bootstrap-loader , bootstrap-Sass, url-loader, resolve-url-loader
+     - modifying bootstrap customizations.scss
+12.  Webpack 2 - How to optimize css stylesheet = https://www.youtube.com/watch?v=-WRjUQG4huA&list=PLkEZWD8wbltnRp6nRR8kv97RbpcUdNawY&index=13

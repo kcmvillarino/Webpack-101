@@ -1,3 +1,5 @@
+@import './bootstrap/customization.scss';
+
 html, body {
     height: 100%;
     min-height: 100%;
@@ -6,6 +8,6 @@ html, body {
 body {
     background-color: pink;
     p {
-        color: red;
+        color: $brand-success;
     }
 }

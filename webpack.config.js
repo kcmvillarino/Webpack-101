@@ -1,21 +1,25 @@
 const HTMLPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-var webpack = require('webpack')
-var path = require('path')
-
-var isProd = process.env.NODE_ENV === 'production' // true or false
-var cssDev = ['style-loader', 'css-loader', 'sass-loader']
-var cssProd = ExtractTextPlugin.extract({
+const webpack = require('webpack')
+const path = require('path')
+const bootstrapEntryPoints = require('./webpack.bootstrap.config')
+const glob = require('glob')
+const PurifyCSSPlugin = require('purifycss-webpack')
+const isProd = process.env.NODE_ENV === 'production' // true or false
+const cssDev = ['style-loader', 'css-loader', 'sass-loader']
+const cssProd = ExtractTextPlugin.extract({
   fallback: 'style-loader',
   use: ['css-loader', 'sass-loader'],
   publicPath: '/dist'
 })
-var cssConfig = isProd ? cssProd : cssDev
+const cssConfig = isProd ? cssProd : cssDev
+const bootstrapConfig = isProd ? bootstrapEntryPoints.prod : bootstrapEntryPoints.dev
 
 module.exports = {
   entry: {
     app: './src/app.js',
-    contact: './src/contact.js'
+    contact: './src/contact.js',
+    bootstrap: bootstrapConfig
   },
   output: {
     // path: 'dist',
@@ -38,7 +42,10 @@ module.exports = {
         test: /\.(jpg|svg|png)$/,
         use: 'file-loader?name=[name].[ext]&outputPath=img/'
 
-      }
+      },
+      { test: /\.(woff2?|svg)$/, loader: 'url-loader?limit=10000&name=fonts/[name].[ext]' },
+      { test: /\.(ttf|eot)$/, loader: 'file-loader?name=fonts/[name].[ext]' },
+      { test: /bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/, loader: 'imports-loader?jQuery=jquery' }
     ]
   },
   devServer: {
@@ -69,7 +76,7 @@ module.exports = {
       template: './src/contact.html'
     }),
     new ExtractTextPlugin({
-      filename: 'app.css',
+      filename: '/css/[name].css',
       disable: !isProd,
       allChunks: true
     }),
@@ -77,6 +84,10 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       //
-    })
+    }),
+    // new PurifyCSSPlugin({
+    //   // Give paths to parse for rules. These should be absolute!
+    //   paths: glob.sync(path.join(__dirname, '.src/*.html'))
+    // })
   ]
 }
