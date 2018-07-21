@@ -10,7 +10,7 @@ const cssDev = ['style-loader', 'css-loader', 'sass-loader']
 const cssProd = ExtractTextPlugin.extract({
   fallback: 'style-loader',
   use: ['css-loader', 'sass-loader'],
-  publicPath: '/dist'
+  publicPath: '../' // /dist
 })
 const cssConfig = isProd ? cssProd : cssDev
 const bootstrapConfig = isProd ? bootstrapEntryPoints.prod : bootstrapEntryPoints.dev
@@ -76,7 +76,7 @@ module.exports = {
       template: './src/contact.html'
     }),
     new ExtractTextPlugin({
-      filename: '/css/[name].css',
+      filename: 'css/[name].css',
       disable: !isProd,
       allChunks: true
     }),
